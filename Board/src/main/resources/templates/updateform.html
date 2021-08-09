@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시판 수정</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" >
+</head>
+<body>
+
+	<div class="update">
+    	<h2>글 수정</h2>
+    	<form th:method="post" th:action="@{/update/form/} + ${board.id}" th:object="${board}">
+    		작성자 <br>
+    		<input type="text" th:field="*{writer}" disabled><br><br>
+    		제목 <br>
+    		<input type="text" th:field="*{title}"><br><br>
+    		내용 <br>
+    		<textarea th:field="*{content}"></textarea><br>
+    		<br>
+    		<button type="submit">수정</button>
+    	</form>
+    </div>
+
+</body>
+</html>
