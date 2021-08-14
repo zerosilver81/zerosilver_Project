@@ -1,31 +1,74 @@
 @charset "UTF-8";
 
 
+/* 테이블 */
+.table {
+	padding: 3px;
+	margin: 0 20px;
+}
+.table td {
+	padding: 5px;
+}
+
 /** 글 작성 부분 */
-.register h2 {
+
+.write-btn {
+	margin: 20px;
+	padding: 5px;
+}
+
+.register {
 	border: 1px solid #000;
-	width: 100px;
-	text-align: center;
-	color: #fff;
-	background-color: #000;
-	margin: 20px 20px;
+	border-radius:10px;
+	padding: 20px 20px;
+	margin: 0 auto;
+	text-align:center;
+	max-width: 700px;
+} 
+
+.register li {
+	list-style: none;
+	line-height: 24px;
+}
+
+.register input {
+	margin: 10px 0;
 }
 .register input[name=writer] {
-	margin-left: 10px;
+	height: 20px
 }
 .register input[name=title] {
-	margin: 10px 0;
-	width: 500px;
+	width: 100%;
 	height: 20px
 }
 .register textarea {
 	margin: 10px 0;
-	width: 500px;
+	width: 100%;
 	height: 200px
 }
 .register button {
-	margin:0 40px;
+	margin:0 250px;
 	padding: 10px 20px
+}
+
+/* 검색 부분*/
+
+.search {
+	margin: 20px 20px;
+}
+
+.search-title {
+	margin: 20px;
+}
+
+.search input[name=keyword] {
+	width: 300px;
+	height: 25px;
+}
+
+.search button {
+	margin-left: 10px;
+	height: 30px;
 }
 
 /** 글 수정 부분*/

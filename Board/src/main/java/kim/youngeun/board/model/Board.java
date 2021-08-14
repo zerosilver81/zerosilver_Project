@@ -43,21 +43,5 @@ public class Board {
 	@LastModifiedDate
 	private LocalDateTime modified_at;
 	
-//	private int user_id; //user_id(FK)
-//	
-//	private int category_id;
-//	
-//	private String title;
-//	
-//	private String content;
-//	
-//	private LocalDateTime created_at;
-//	
-//	private LocalDateTime modified_at;
-//	
-//	private int view_count;
-//	
-//	private int like_count;
-	
 	
 }

@@ -9,8 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import kim.youngeun.board.model.Board;
 import kim.youngeun.board.model.BoardForm;
@@ -33,10 +35,20 @@ public class BoardController {
 		return "list";
 	}
 	
-	@PostMapping("/")
-	public String createPost(@Valid Board board, BindingResult bindingResult, Model model) {
+	@GetMapping("/write")
+	public String writingMove(Model model) {
+		
+		model.addAttribute("board", new Board());
+		
+		return "write";
+	}
+	
+	
+	@PostMapping("/write")
+	public String createPost(@Valid @ModelAttribute Board board, BindingResult bindingResult, Model model) {
 	
 	if(bindingResult.hasErrors()) {
+		
 		List<Board> boardList = boardService.searchAll();
 		
 		model.addAttribute("boardList", boardList);
@@ -51,7 +63,7 @@ public class BoardController {
 	}
 	
 	@GetMapping("/update/{id}")
-	public String update(@PathVariable(name="id") int boardId, Model model) {
+	public String update(@PathVariable(name="id") Long boardId, Model model) {
 		
 		Board board = boardService.findByno(boardId);
 		
@@ -62,7 +74,7 @@ public class BoardController {
 	
 	
 	@PostMapping("/update/form/{id}")
-	public String updateForm(@PathVariable("id") int id, BoardForm form) {
+	public String updateForm(@PathVariable("id") Long id, BoardForm form) {
 		
 		Board board = boardService.getBoardId(id);
 		
@@ -76,13 +88,21 @@ public class BoardController {
 	}
 	
 	@PostMapping("/delete/{id}")
-	public String deleteBoard(@PathVariable("id") int id) {
+	public String deleteBoard(@PathVariable("id") Long id) {
 		
 		boardService.deleteBoard(id);
 		
 		return "redirect:/";
 	}
 	
-	
+	@GetMapping("/search")
+	public String search(@RequestParam(value="keyword") String keyword, Model model) {
+		
+		List<BoardForm> boardList = boardService.searchPost(keyword);
+				
+		model.addAttribute("boardList", boardList);
+		
+		return "list";
+	}
 	
 }
