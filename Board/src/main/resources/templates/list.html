@@ -7,16 +7,24 @@
 </head>
 <body>
 <div id="contents">
-<a th:href="@{/write}"><button class="write-btn">작성하기</button></a><br><br>
+<div class="div-logo">
+<a th:href="@{/}"><span class="logo"><i class="fas fa-igloo"></i></span></a>
+</div>
+<br>
+	<div th:if="${keyword != null}">	<!-- 검색 결과 : 키워드가 있을 경우 -->    
+   <h1 class="search-result">검색 결과 : <span th:text="${keyword}"></span></h1>
+   </div>
+<div class="write">
+<a th:href="@{/write}"><button class="write-btn">작성하기</button></a>
+<br>
+<br>
     <table th:if="${boardList.size()}" border=1 class="table">
         <thead>
         <tr>
             <th class="one wide">번호</th>
             <th>작성자</th>
-            <th class="ten wide">글제목</th>
-            <th class="two wide">작성내용</th>
+            <th class="ten wide">글 제목</th>
             <th class="three wide">작성일</th>
-            <th class="four wide">수정일</th>
             <th></th>
             <th></th>
         </tr>
@@ -32,16 +40,12 @@
                 <span th:text="${board.writer}"></span>
             </td>
             <td>
-                    <span th:text="${board.title}"></span>
-            </td>
-            <td>
-                <span th:text="${board.content}"></span>
+                <!--<a th:href="@{'/list/' + ${board.id}}">-->
+                    <a th:href="@{'/detail/'} + ${board.id}"><span th:text="${board.title}"></span></a>
+                <!--</a>-->
             </td>
             <td>
                 <span th:text="${#temporals.format(board.created_at, 'yyyy-MM-dd HH:mm')}"></span>
-            </td>
-            <td>
-            <span th:text="${#temporals.format(board.modified_at, 'yyyy-MM-dd HH:mm')}"></span>
             </td>
             <td>
             	<a th:href="@{'/update/'+${board.id}}"><button>수정</button></a>

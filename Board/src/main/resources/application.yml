@@ -3,7 +3,7 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    password: ###
+    password: duddms960
     url: jdbc:mysql://yekimdb.c3qmriveemce.ap-northeast-2.rds.amazonaws.com/study?serverTimezone=UTC&characterEncoding=UTF-8
     username: yekim
   mvc:

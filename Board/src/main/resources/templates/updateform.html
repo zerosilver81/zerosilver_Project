@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <title>게시판 수정</title>
     <link rel="stylesheet" th:href="@{/css/style.css}" >
+	<script src="https://kit.fontawesome.com/91729f376b.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
+	<div class="div-logo">
+	<a th:href="@{/}"><span class="logo"><i class="fas fa-igloo"></i></span></a>
+	</div>
+	<br>
 	<div class="update">
     	<h2>글 수정</h2>
     	<form th:method="post" th:action="@{/update/form/} + ${board.id}" th:object="${board}">

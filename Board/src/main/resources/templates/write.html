@@ -4,8 +4,15 @@
     <meta charset="UTF-8">
     <title>게시판 작성</title>
     <link rel="stylesheet" th:href="@{/css/style.css}" >
+	<script src="https://kit.fontawesome.com/91729f376b.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
+	<div class="div-logo">
+		<a th:href="@{/}">
+		<span class="logo"><i class="fas fa-igloo"></i></span></a>
+	</div>
+	<br>
 <div class="register">
    	<h2>글 작성</h2>
    	<form th:method="post" th:action="@{/write}" th:object="${board}">  		

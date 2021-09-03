@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Detail</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<script src="https://kit.fontawesome.com/91729f376b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="div-logo">
+	<a th:href="@{/}"><span class="logo"><i class="fas fa-igloo"></i></span></a>
+	</div>
+	<div class="all-container">
+		<form th:object="${board}">
+			<div class="detail-date">
+			작성일 : <span th:text="${#temporals.format(board.created_at, 'yyyy-MM-dd HH:mm')}"></span>
+			 / 
+			수정일 : <span th:text="${#temporals.format(board.modified_at, 'yyyy-MM-dd HH:mm')}"></span>
+			</div>
+			<div class="detail-writer">
+				<h3><label for="writer">글쓴이</label></h3>
+				<p th:text="*{writer}"></p>
+			</div>
+			<div class="detail-title">
+				<h3><label for="title">제목</label></h3>
+				<p th:text="*{title}"></p>
+			</div>
+			
+			<div class="detail-content">
+				<h3><label for="content">내용</label></h3>
+				<p th:text="*{content}"></p>
+			</div>
+		</form>
+	
+	</div>
+
+
+</body>
+</html>

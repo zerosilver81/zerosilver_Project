@@ -62,6 +62,17 @@ public class BoardController {
 		return "redirect:/";
 	}
 	
+	@GetMapping("/detail/{id}")
+	public String detail(@PathVariable(name="id") Long BoardId, Model model) {
+		
+		Board board = boardService.findByno(BoardId);
+		
+		model.addAttribute("board", board);
+		//model.addAttribute("boardList", boardList);
+		
+		return "detail";
+	}
+	
 	@GetMapping("/update/{id}")
 	public String update(@PathVariable(name="id") Long boardId, Model model) {
 		
